@@ -21,12 +21,11 @@ database.connect();
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
-const corsOptions = {
-  origin: ['https://learnsphere-e66b4ro42-ankur-akashs-projects.vercel.app'], 
+app.use(cors({
+  origin: '*',
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization',
-};
-app.use(cors(corsOptions));
+}));
 app.use(
 	fileUpload({
 		useTempFiles:true,
